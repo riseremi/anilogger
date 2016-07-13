@@ -7,10 +7,13 @@ package riseremi.asilaydying;
 public class Main {
 
     private static Poller poller;
+    private static boolean debug = false;
 
     public static void main(String[] args) {
-        String arg = args[0];
-        boolean debug = "--debug".equals(arg);
+        if (args.length > 0) {
+            String arg = args[0];
+            debug = "--debug".equals(arg);
+        }
 
         poller = new Poller(debug);
         poller.start();
