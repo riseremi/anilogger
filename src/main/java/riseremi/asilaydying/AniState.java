@@ -1,5 +1,10 @@
 package riseremi.asilaydying;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import org.json.JSONObject;
+
 /**
  *
  * @author riseremi
@@ -30,10 +35,26 @@ public class AniState {
         this.guests = guests;
     }
 
+    private String getCurrentDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss");
+        Date date = new Date();
+
+        return dateFormat.format(date);
+    }
+
     @Override
     public String toString() {
-        return "Users: " + this.users + "\r\n"
+        return getCurrentDateTime() + "\r\nUsers: " + this.users + ", "
                 + "Guests: " + this.guests + "\r\n";
+    }
+
+    public String toLogString() {
+        JSONObject state = new JSONObject();
+        state.put("users", this.users);
+        state.put("guests", this.guests);
+        state.put("timestamp", System.currentTimeMillis());
+
+        return state.toString();
     }
 
 }
