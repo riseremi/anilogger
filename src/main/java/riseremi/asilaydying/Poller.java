@@ -15,7 +15,7 @@ import java.util.Date;
  */
 public class Poller extends Thread {
 
-    private final static long INTERVAL_DEFAULT = 15 * 60 * 1000; // 15 minutes
+    private final static long INTERVAL_DEFAULT = 5 * 60 * 1000; // 5 minutes
     private final static long INTERVAL_DEBUG = 5 * 1000; // 5 seconds
     private static long interval;
 
